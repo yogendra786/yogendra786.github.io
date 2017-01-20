@@ -15,35 +15,10 @@
 
 </style>
 
-<<<<<<< HEAD
-<h2 class="red-text">CatPhotoApp</h2>
 
-<p>Click here for <a href="#">cat photos</a>.</p>
 
-<a href="#"><img class="smaller-image thick-green-border" alt="A cute orange cat lying on its back. " src="https://bit.ly/fcc-relaxing-cat"></a>
 
-<p>Things cats love:</p>
-<ul>
-  <li>cat nip</li>
-  <li>laser pointers</li>
-  <li>lasagna</li>
-</ul>
-<p>Top 3 things cats hate:</p>
-<ol>
-  <li>flea treatment</li>
-  <li>thunder</li>
-  <li>other cats</li>
-</ol>
-<form action="/submit-cat-photo">
-  <label><input type="radio" name="indoor-outdoor"> Indoor</label>
-  <label><input type="radio" name="indoor-outdoor"> Outdoor</label>
-  <input type="text" placeholder="cat photo URL" required>
-  <button type="submit">Submit</button>
-</form>
 
-<a href="new.html">new</a>
-
-=======
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-8">
@@ -102,4 +77,4 @@
     <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Submit</button></div></div>
   </form>
 </div>
->>>>>>> 868d492abfccaf1061b3746646fbf6c09564976b
+<a href="new.html">new</a>
