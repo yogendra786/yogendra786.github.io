@@ -1,80 +1,203 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-<style>
-  h2 {
-    font-family: Lobster, Monospace;
-  }
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Portfolio</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Kumar+One|Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .nav>li>a {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                width: 100%;
+            }
+             h1 {
+                 font-family: 'Kumar One', cursive;
+                 color: crimson;
+                 text-shadow: 3px 3px 5px #000000;
+            }
+            div1{
+                text-shadow: 1px 1px 2px #000000;
+            }
+            td,p{
+                font-family: 'Lobster', cursive;
+                font-size: 15px;
+            }
+            th{
+                 font-family: 'Kumar One', cursive;
+                color: midnightblue;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <div class="well text-center"><h1><strong>YOGENDRA  KUMAR  DHIWAR</strong></h1></div>
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a data-toggle="pill" href="#home"><span class="glyphicon glyphicon-home"><strong> ABOUT</strong></span></a></li>
+                <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-bookmark"><strong> SKILLS</strong></span></a></li>
+                <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-education"><strong> EDUCATION</strong></span></a></li>
+                <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-briefcase"><strong> EXPERIENCE</strong></span></a></li>
+            </ul>
 
-  .thick-green-border {
-    border-color: green;
-    border-width: 10px;
-    border-style: solid;
-    border-radius: 50%;
-  }
+            <div class="tab-content">
+        <!------------------------------------------------------------------------------------------------>      
+                <div id="home" class="tab-pane fade in active">
+                    <div class="well text-center">
+                        <p>I am Yogendra Kumar Dhiwar, this web page is a part of my learning project(under development)</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="thumbnail">
+                                <img src="win1.jpg" alt="Pic_Magneto_Mall" style="width:100%">
+                                <div class="caption">
+                                    <p class="text-center">At Magneto Mall, Raipur</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                                <div class="thumbnail">
+                                    <img src="win2.jpg" alt="Pic_Ambuja_Mall" style="width:100%">
+                                    <div class="caption">
+                                        <p class="text-center">At Ambuja Mall, Raipur</p>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-xs-3">
+                                <div class="thumbnail">
+                                    <img src="win3.jpg" alt="Pic_Kamand_Campus" style="width:100%">
+                                    <div class="caption">
+                                        <p class="text-center">At Kamand Campus, IIT Mandi</p>
+                                    </div>
+                                </div>
+                        </div>
 
-</style>
-
-
-
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-8">
-      <h2 class="text-primary text-center">CatPhotoApp</h2>
-    </div>
-    <div class="col-xs-4">
-      <a href="#"><img class="img-responsive thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back. "></a>
-    </div>
-  </div>
-  <img src="https://bit.ly/fcc-running-cats" class="img-responsive" alt="Three kittens running towards the camera. ">
-  <div class="row">
-    <div class="col-xs-4">
-      <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i> Like</button>
-    </div>
-    <div class="col-xs-4">
-      <button class="btn btn-block btn-info"><i class="fa fa-info-circle"></i> Info</button>
-    </div>
-    <div class="col-xs-4">
-      <button class="btn btn-block btn-danger"><i class="fa fa-trash"></i> Delete</button>
-    </div>
-  </div>
-  <p>Things cats <span class="text-danger">love:</span></p>
-  <ul>
-    <li>cat nip</li>
-    <li>laser pointers</li>
-    <li>lasagna</li>
-  </ul>
-  <p>Top 3 things cats hate:</p>
-  <ol>
-    <li>flea treatment</li>
-    <li>thunder</li>
-    <li>other cats</li>
-  </ol>
-  <form action="/submit-cat-photo">
-    <div class="row">
-      <div class="col-xs-6">
-        <label><input type="radio" name="indoor-outdoor"> Indoor</label>
-      </div>
-      <div class="col-xs-6">
-        <label><input type="radio" name="indoor-outdoor"> Outdoor</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4">
-        <label><input type="checkbox" name="personality"> Loving</label>
-      </div>
-      <div class="col-xs-4">
-        <label><input type="checkbox" name="personality"> Lazy</label>
-      </div>
-      <div class="col-xs-4">
-        <label><input type="checkbox" name="personality"> Crazy</label>
-      </div>
-    </div>
-    <div class="row"><div class="col-xs-7">
-    <input type="text" class="form-control" placeholder="cat photo URL" required></div><div class="col-xs-5">
-    <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Submit</button></div></div>
-  </form>
-</div>
-<a href="new.html">new</a>
+                        <div class="col-xs-3">
+                                <div class="thumbnail">
+                                    <img src="win4.jpg" alt="Pic_Hostel_Room" style="width:100%">
+                                    <div class="caption">
+                                        <p class="text-center">At Hostel Room, IIT Mandi</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="well text-center">
+                    <div class="row container-fluid">
+                        <div class="col-xs-12 text-center">
+                    <a href="https://www.facebook.com/yogendrakumar.dhiwar.7" target="_blank"><i class="fa fa-facebook-square" style="font-size:32px;color:light blue"></i></a>
+                        
+                    <a href="https://www.quora.com/profile/Yogendra-Pratap-Dhiwar" target="_blank"><i class="fa fa-quora" style="font-size:32px;color:crimson"></i></a>
+                        
+                    <a href="https://plus.google.com/u/0/109017590323148685313" target="_blank"><i class="fa fa-google-plus-official" style="font-size:32px;color:red"></i></a>
+                        
+                    <a href="https://www.linkedin.com/in/yogendra-dhiwar-882721b9?trk=nav_responsive_tab_profile_pic" target="_blank"><i class="fa fa-linkedin-square" style="font-size:32px;color:dark blue"></i></a>
+                        
+                    <a href="https://github.com/yogendra786" target="_blank"><i class="fa fa-github-square" style="font-size:32px;color:black"></i></a>
+                       
+                    <a href="https://twitter.com/YogendraKumarD6" target="_blank"><i class="fa fa-twitter" style="font-size:32px;color:light blue"></i></a>
+                      
+                    <a href="https://www.instagram.com/yog_endra/" target="_blank"><i class="fa fa-instagram" style="font-size:32px;color:red" ></i></a>
+                        
+                    <a href="https://angel.co/yogendra-pratap-dhiwar" target="_blank"><i class="fa fa-angellist" style="font-size:32px;color:black" ></i></a>
+                        
+                    <a href="https://www.freecodecamp.com/yogendra786" target="_blank"><i class="fa fa-free-code-camp" style="font-size:32px;color:black"></i></a>
+                        
+                        </div>
+                    </div>
+                    </div>
+                    <footer class="container-fluid text-center">
+                        <p>yogendrakumardhiwar786@gmail.com</p>
+                    </footer>
+                </div>
+         <!------------------------------------------------------------------------------------------------>   
+                <div id="menu1" class="tab-pane fade">
+                    <h3>SKILLS</h3>
+                        <p>under-development</p>
+                </div>
+    <!------------------------------------------------------------------------------------------------>
+                <div id="menu2" class="tab-pane fade">
+        
+                    <br><br><br><br>
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center table-bordered myTableStyle">
+                            <thead><tr>
+                                <th class="text-center">BOARD / UNIVERSITY</th>
+                                <th class="text-center">DEGREE NAME</th>
+                                <th class="text-center">YEAR</th>
+                                <th class="text-center">PERCENTILE / CGPA</th>
+                            </thead></tr>
+                            <tbody>
+                                <tr>
+                                    <td>Indian Institute of Technology Mandi, Mandi (H.P.)</td>
+                                    <td>B.Tech(Computer Science and Technology)</td>
+                                    <td>2014-present</td>
+                                    <td>7.74</td>
+                                </tr>
+                                <tr>
+                                    <td>Shiv Jyoti Senior Secondary School, Kota (Rajasthan)</td>
+                                    <td>Intermediate</td>
+                                    <td>2012-2013</td>
+                                    <td>85.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Kendriya Vidyalaya No.1, Raipur (C.G.)</td>
+                                    <td>Matriculation</td>
+                                    <td>2010-2011</td>
+                                    <td>9.4</td>
+                                </tr>
+                                <tr>
+                                    <td>Shri Shankara English Medium School, Raipur (C.G.)</td>
+                                    <td>8th</td>
+                                    <td>2008-2009</td>
+                                    <td>92%</td>
+                                </tr>
+                                <tr>
+                                    <td>Shri Shankara English Medium School, Raipur (C.G.)</td>
+                                    <td>5th</td>
+                                    <td>2005-2006</td>
+                                    <td>90.67%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        <!------------------------------------------------------------------------------------------------>
+                <div id="menu3" class="tab-pane fade">
+                    <br><br><br><br>
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center table-bordered myTableStyle">
+                            <thead><tr>
+                                <th class="text-center">PROJECT NAME</th>
+                                <th class="text-center">SKILLS USED</th>
+                            </thead></tr>
+                            <tbody>
+                                <tr>
+                                    <td><a href="tribute.html" target="_blank">Tribute Page</a></td>
+                                    <td>HTML,CSS & BOOTSTRAP</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="index.html" target="_blank">Portfolio</a></td>
+                                    <td>HTML,CSS & BOOTSTRAP</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="catPhotoApp.html" target="_blank">Cat Photo App</a></td>
+                                    <td>HTML,CSS,BOOTSTRAP & JQuery</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        <!------------------------------------------------------------------------------------------------>  
+            </div>
+            
+        </div>
+    
+    </body>
+    
+</html>
