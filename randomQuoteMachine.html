@@ -23,15 +23,15 @@
                                 response.quoteText + "<br/>&dash; " + response.quoteAuthor + " &dash;</p>");
                         }
                     });
-                  //  $("body").css("background",ran_col());
+                    $("body").css("background",ran_col());
                 });            
             });
-           // function ran_col(){
-           //    var color = '#';
-           //     var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; 
-            //    color += letters[Math.floor(Math.random() * letters.length)];
-            //    return color;
-            //}
+            function ran_col(){
+               var color = '#';
+                var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; 
+               color += letters[Math.floor(Math.random() * letters.length)];
+               return color;
+           }
             
         </script>
         <style>
