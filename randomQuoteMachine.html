@@ -14,7 +14,7 @@
         <script>
             $(document).ready(function(){
                 $("button").click(function(){
-                    $.ajax({
+                    var output = $.ajax({
                         url: "http://api.forismatic.com/api/1.0/?",
                         dataType: "jsonp",
                         data: "method=getQuote&format=jsonp&lang=en&jsonp=?",
@@ -64,7 +64,7 @@
                     <div class="well ma"><p id="rd"></p></div>
                 </div>
                 <div class="col-xs-12 text-center">
-                    <button class="btn btn-primary">Click Me</button>
+                    <button class="btn btn-primary" id="output">Click Me</button>
                 </div>
             </div>
             
