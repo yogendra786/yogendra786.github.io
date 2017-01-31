@@ -189,6 +189,10 @@
                                     <td><a href="catPhotoApp.html" target="_blank">Cat Photo App</a></td>
                                     <td>HTML,CSS,BOOTSTRAP & JQuery</td>
                                 </tr>
+				<tr>
+				    <td><a href="randomQuoteMachine.html" target="_blank">Random Quote Machine</a></td>
+				    <td>HTML,CSS,AJAX,BOOTSTRAP & JQuery</td>
+				</tr>
                             </tbody>
                         </table>
                     </div>
