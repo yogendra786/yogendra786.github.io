@@ -1,0 +1,452 @@
+<html lang="en">
+    <head>
+        <title>Open Indian Weather</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Kumar+One|Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script>
+            var city = "Raipur";
+            var tmp=27;
+            var url = "http://api.openweathermap.org/data/2.5/weather?q="+city+",IN&appid=96eb4c37ed14cdc18ff3445c2d42cbe7&units=metric";
+            var getWeather = function(data){
+                var txt = "Weather in "+ city +" is "+data.weather[0].description+" with temperature : "+data.main.temp + url;
+                
+              $("#temp").text(data.main.temp +" °C");
+                tmp = data.main.temp;
+                var c = data.weather[0].icon[2];
+                var str = data.weather[0].description;
+                $("#hy").text(c+" "+str);
+                if(c == "d"){
+                    if(str === "clear sky"){
+                        $("body").css("background-image", "url('clearday.jpg')");
+                    }else if(str === "few clouds"){
+                        $("body").css("background-image", "url('fewcloudsday.JPG')");
+                    }else if(str === "scattered clouds" || str === "overcast clouds"){
+                        $("body").css("background-image", "url('scatteredday.jpg')");
+                    }else if(str === "broken clouds"){
+                        $("body").css("background-image", "url('brokencloudsday.jpg')");
+                    }else if(str === "shower rain" || str === "ragged shower rain" || str === "high intensity shower rain" || str === "light intensity shower rain" || str === "freezing rain"){
+                        $("body").css("background-image", "url('showerday.jpg')");
+                    }else if(str === "rain" || str === "very heavy rain" || str === "heavy intensity rain" || str === "extreme rain" || str === "moderate rain" || str === "light rain"){
+                        $("body").css("background-image", "url('rainday.jpg')");
+                    }else if(str === "thunderstorm" || str === "thunderstorm with light rain" || str === "thunderstorm with rain" || str === "thunderstorm with heavy rain" || str === "light thunderstorm" || str === "heavy thunderstorm" || str === "ragged thunderstorm" || str === "thunderstorm with light drizzle" || str === "thunderstorm with drizzle" || str === "thunderstorm with heavy drizzle"){
+                        $("body").css("background-image", "url('thunderstormday.jpg')");
+                    }else if(str === "snow" || str === "light snow" || str === "heavy snow" || str === "sleet" || str === "light rain and snow" || str === "rain and snow" || str === "shower snow" || str === "heavy shower snow"){
+                        $("body").css("background-image", "url('snowday.jpg')");
+                    }else if(str === "mist" || str === "smoke" || str === "haze" || str === "sand,dust whirls" || str === "fog" || str === "sand" || str === "volcanic ash" || str === "squalls" || str === "tornado"){
+                        $("body").css("background-image", "url('mistday.JPG')");
+                    }else if(str === "light intensity drizzle" || str === "drizzle" || str === "heavy intensity drizzle" || str === "light intensity drizzle rain" || str === "drizzle rain" || str === "heavy intensity drizzle rain" || str === "shower rain and drizzle" || str === "heavy shower rain and drizzle" || str === "shower drizzle"){
+                        $("body").css("background-image", "url('drizzleday.jpg')");
+                    }
+                    else{
+                        $("body").css("background-image", "url('default.jpg')");
+                    }
+                    
+                }
+                else if(c == "n"){
+                    if(str === "clear sky"){
+                         $("body").css("background-image", "url('clearnight.jpg')");
+                    }else if(str === "few clouds"){
+                         $("body").css("background-image", "url('fewcloudsnight.jpg')");
+                    }else if(str === "scattered clouds" || str === "overcast clouds"){
+                         $("body").css("background-image", "url('scatteredcloudsnight.jpg')");
+                    }else if(str === "broken clouds"){
+                         $("body").css("background-image", "url('brokencloudsnight.JPG')");
+                    }else if(str === "shower rain" || str === "ragged shower rain" || str === "high intensity shower rain" || str === "light intensity shower rain" || str === "freezing rain"){
+                         $("body").css("background-image", "url('showernight.jpg')");
+                    }else if(str === "rain" || str === "very heavy rain" || str === "heavy intensity rain" || str === "extreme rain" || str === "moderate rain" || str === "light rain"){
+                         $("body").css("background-image", "url('rainnight.jpg')");
+                    }else if(str === "thunderstorm" || str === "thunderstorm with light rain" || str === "thunderstorm with rain" || str === "thunderstorm with heavy rain" || str === "light thunderstorm" || str === "heavy thunderstorm" || str === "ragged thunderstorm" || str === "thunderstorm with light drizzle" || str === "thunderstorm with drizzle" || str === "thunderstorm with heavy drizzle"){
+                         $("body").css("background-image", "url('thunderstormnight.jpg')");
+                    }else if(str === "snow" || str === "light snow" || str === "heavy snow" || str === "sleet" || str === "light rain and snow" || str === "rain and snow" || str === "shower snow" || str === "heavy shower snow"){
+                         $("body").css("background-image", "url('snownight.jpg')");
+                    }else if(str === "mist" || str === "smoke" || str === "haze" || str === "sand,dust whirls" || str === "fog" || str === "sand" || str === "volcanic ash" || str === "squalls" || str === "tornado"){
+                         $("body").css("background-image", "url('mistnight.jpg')");
+                    }else if(str === "light intensity drizzle" || str === "drizzle" || str === "heavy intensity drizzle" || str === "light intensity drizzle rain" || str === "drizzle rain" || str === "heavy intensity drizzle rain" || str === "shower rain and drizzle" || str === "heavy shower rain and drizzle" || str === "shower drizzle"){
+                        $("body").css("background-image", "url('drizzlenight.jpg')");
+                    }
+                    else{
+                        $("body").css("background-image", "url('default.jpg')");
+                    }
+                }
+               
+                //clicked();
+              $("#des").text(data.weather[0].description);  document.getElementById("im").setAttribute("src","http://openweathermap.org/img/w/"+data.weather[0].icon+".png");
+            }
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                $("#tg").show();
+   
+            }
+            var prev ="1";
+            function func(val,id){
+                var cit = val;
+                $("h2").text(val);
+                document.getElementById(prev).removeAttribute("style");
+                document.getElementById(id).setAttribute("style","color:green");
+                prev = id;
+                var ur = "http://api.openweathermap.org/data/2.5/weather?q="+cit+",IN&appid=96eb4c37ed14cdc18ff3445c2d42cbe7&units=metric"; 
+                setUrl(ur,cit);
+               
+            }
+            function setUrl(ur,cit){
+               url = ur;
+               city = cit;
+            }
+            var toggle = 1;
+            function clicked(val){
+                
+                if(val === 1){
+                    var j = tmp * 9/5 + 32;
+                    $("#temp").text(j +" °F");
+                    //$("#con").text("Degree");
+                    toggle = 0;
+                }
+                else{
+                    $("#temp").text(tmp +" °C");
+                    //$("#con").text("Farhenite");
+                    toggle = 1;
+                }
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+                $("#tg").hide();
+            }
+            $(document).ready(function(){
+                $("#tg").hide();
+               $(".h").click(function(){
+                  $.getJSON(url,getWeather);
+               });
+                $("#con").click(function(){
+                   clicked(toggle); 
+                });
+                    
+           });
+        </script>
+        <style>
+            body{
+                background-image: url("default.jpg");
+            }
+            .sidenav {
+                    height: 100%;
+                    width: 0;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: #111;
+                    overflow-x: hidden;
+                    transition: 0.5s;
+                    padding-top: 60px;
+            }
+
+            .sidenav a {
+                    padding: 8px 8px 8px 32px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #818181;
+                    display: block;
+                    transition: 0.3s
+            }
+
+            .sidenav a:hover, .offcanvas a:focus{
+                    color: #f1f1f1;
+            }
+
+            .sidenav .closebtn {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                    margin-left: 50px;
+            }
+
+            #main {
+                    transition: margin-left .5s;
+                    padding: 16px;
+            }
+
+            @media screen and (max-height: 450px) {
+                    .sidenav {padding-top: 15px;}
+                    .sidenav a {font-size: 18px;}
+            }
+            
+             h1{
+                font-family:fantasy;
+                font-size: 50px;
+                color: darkgreen;
+                text-shadow: 4px 4px 3px #888888;
+            }
+            
+            .k{
+                font-family:monospace;
+                font-size: 15px;
+                color: indianred;
+                text-shadow: 3px 3px 2px #888888;
+            }
+            
+            .boxed {
+                border: 5px solid indianred ;
+                border-radius: 20px;
+                margin-top: 3%;
+                margin-left: 30%;
+                margin-right: 30%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                box-shadow: 10px 10px 5px #888888;
+                background-color: aliceblue;
+            }
+            
+            h2{
+                font-family: 'Bungee', cursive;
+            }
+            
+            .centered {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .h{
+                
+            }
+            .bt1{
+                box-shadow: 8px 8px 5px #888888;
+            }
+            
+            #des{
+                font-family: 'Lobster', cursive;
+                font-size: 30px;
+                color:darkred;
+            }
+            #temp{
+                font-family: 'Lobster', cursive;
+                font-size: 30px;
+                color:darkslategray;
+            }
+
+        </style>
+    </head>
+    <body >
+        <div class="container-fluid">
+            
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href= "#" class = "h" onclick="func('Agra','1')" id= "1">Agra</a>
+<a href= "#" class = "h" onclick="func('Ahmedabad','2')" id= "2">Ahmedabad</a>
+<a href= "#" class = "h" onclick="func('Ahmednagar','3')" id= "3">Ahmednagar</a>
+<a href= "#" class = "h" onclick="func('Aizawl','4')" id= "4">Aizawl</a>
+<a href= "#" class = "h" onclick="func('Ajmer','5')" id= "5">Ajmer</a>
+<a href= "#" class = "h" onclick="func('Aligarh','6')" id= "6">Aligarh</a>
+<a href= "#" class = "h" onclick="func('Allahabad','7')" id= "7">Allahabad</a>
+<a href= "#" class = "h" onclick="func('Almora','8')" id= "8">Almora</a>
+<a href= "#" class = "h" onclick="func('Alwar','9')" id= "9">Alwar</a>
+<a href= "#" class = "h" onclick="func('Ambala','10')" id= "10">Ambala</a>
+<a href= "#" class = "h" onclick="func('Amravati','11')" id= "11">Amravati</a>
+<a href= "#" class = "h" onclick="func('Amritsar','12')" id= "12">Amritsar</a>
+<a href= "#" class = "h" onclick="func('Aurangabad','13')" id= "13">Aurangabad</a>
+<a href= "#" class = "h" onclick="func('Azamgarh','14')" id= "14">Azamgarh</a>
+<a href= "#" class = "h" onclick="func('Balaghat','15')" id= "15">Balaghat</a>
+<a href= "#" class = "h" onclick="func('Bareilly','16')" id= "16">Bareilly</a>
+<a href= "#" class = "h" onclick="func('Bastar','17')" id= "17">Bastar</a>
+<a href= "#" class = "h" onclick="func('Bathinda','18')" id= "18">Bathinda</a>
+<a href= "#" class = "h" onclick="func('Bhiwani','19')" id= "19">Bhiwani</a>
+<a href= "#" class = "h" onclick="func('Bhojpur','20')" id= "20">Bhojpur</a>
+<a href= "#" class = "h" onclick="func('Bhopal','21')" id= "21">Bhopal</a>
+<a href= "#" class = "h" onclick="func('Bijapur','22')" id= "22">Bijapur</a>
+<a href= "#" class = "h" onclick="func('Bikaner','23')" id= "23">Bikaner</a>
+<a href= "#" class = "h" onclick="func('Bilaspur','24')" id= "24">Bilaspur</a>
+<a href= "#" class = "h" onclick="func('Bokaro','25')" id= "25">Bokaro</a>
+<a href= "#" class = "h" onclick="func('Bulandshahr','26')" id= "26">Bulandshahr</a>
+<a href= "#" class = "h" onclick="func('Bundi','27')" id= "27">Bundi</a>
+<a href= "#" class = "h" onclick="func('Burhanpur','28')" id= "28">Burhanpur</a>
+<a href= "#" class = "h" onclick="func('Buxar','29')" id= "29">Buxar</a>
+<a href= "#" class = "h" onclick="func('Chandigarh','30')" id= "30">Chandigarh</a>
+<a href= "#" class = "h" onclick="func('Chennai','31')" id= "31">Chennai</a>
+<a href= "#" class = "h" onclick="func('Chhindwara','32')" id= "32">Chhindwara</a>
+<a href= "#" class = "h" onclick="func('Chitrakoot','33')" id= "33">Chitrakoot</a>
+<a href= "#" class = "h" onclick="func('Chittoor','34')" id= "34">Chittoor</a>
+<a href= "#" class = "h" onclick="func('Chittorgarh','35')" id= "35">Chittorgarh</a>
+<a href= "#" class = "h" onclick="func('Churu','36')" id= "36">Churu</a>
+<a href= "#" class = "h" onclick="func('Coimbatore','37')" id= "37">Coimbatore</a>
+<a href= "#" class = "h" onclick="func('Cuttack','38')" id= "38">Cuttack</a>
+<a href= "#" class = "h" onclick="func('Daman','39')" id= "39">Daman</a>
+<a href= "#" class = "h" onclick="func('Damoh','40')" id= "40">Damoh</a>
+<a href= "#" class = "h" onclick="func('Dantewada','41')" id= "41">Dantewada</a>
+<a href= "#" class = "h" onclick="func('Darbhanga','42')" id= "42">Darbhanga</a>
+<a href= "#" class = "h" onclick="func('Darjeeling','43')" id= "43">Darjeeling</a>
+<a href= "#" class = "h" onclick="func('Dhamtari','44')" id= "44">Dhamtari</a>
+<a href= "#" class = "h" onclick="func('Dhanbad','45')" id= "45">Dhanbad</a>
+<a href= "#" class = "h" onclick="func('Dhar','46')" id= "46">Dhar</a>
+<a href= "#" class = "h" onclick="func('Dharmapuri','47')" id= "47">Dharmapuri</a>
+<a href= "#" class = "h" onclick="func('Dharwad','48')" id= "48">Dharwad</a>
+<a href= "#" class = "h" onclick="func('Dhemaji','49')" id= "49">Dhemaji</a>
+<a href= "#" class = "h" onclick="func('Dhenkanal','50')" id= "50">Dhenkanal</a>
+<a href= "#" class = "h" onclick="func('Dholpur','51')" id= "51">Dholpur</a>
+<a href= "#" class = "h" onclick="func('Dimapur','52')" id= "52">Dimapur</a>
+<a href= "#" class = "h" onclick="func('Dindigul','53')" id= "53">Dindigul</a>
+<a href= "#" class = "h" onclick="func('Dindori','54')" id= "54">Dindori</a>
+<a href= "#" class = "h" onclick="func('Diu','55')" id= "55">Diu</a>
+<a href= "#" class = "h" onclick="func('Doda','56')" id= "56">Doda</a>
+<a href= "#" class = "h" onclick="func('Dumka','57')" id= "57">Dumka</a>
+<a href= "#" class = "h" onclick="func('Dungapur','58')" id= "58">Dungapur</a>
+<a href= "#" class = "h" onclick="func('Durg','59')" id= "59">Durg</a>
+<a href= "#" class = "h" onclick="func('Champaran','60')" id= "60">Champaran</a>
+<a href= "#" class = "h" onclick="func('Delhi','61')" id= "61">Delhi</a>
+<a href= "#" class = "h" onclick="func('Faridabad','62')" id= "62">Faridabad</a>
+<a href= "#" class = "h" onclick="func('Gandhinagar','63')" id= "63">Gandhinagar</a>
+<a href= "#" class = "h" onclick="func('Ganganagar','64')" id= "64">Ganganagar</a>
+<a href= "#" class = "h" onclick="func('Gaya','65')" id= "65">Gaya</a>
+<a href= "#" class = "h" onclick="func('Ghaziabad','66')" id= "66">Ghaziabad</a>
+<a href= "#" class = "h" onclick="func('Gondia','67')" id= "67">Gondia</a>
+<a href= "#" class = "h" onclick="func('Gurgaon','68')" id= "68">Gurgaon</a>
+<a href= "#" class = "h" onclick="func('Gwalior','69')" id= "69">Gwalior</a>
+<a href= "#" class = "h" onclick="func('Hamirpur','70')" id= "70">Hamirpur</a>
+<a href= "#" class = "h" onclick="func('Hanumangarh','71')" id= "71">Hanumangarh</a>
+<a href= "#" class = "h" onclick="func('Hyderabad','72')" id= "72">Hyderabad</a>
+<a href= "#" class = "h" onclick="func('Indore','73')" id= "73">Indore</a>
+<a href= "#" class = "h" onclick="func('Jabalpur','74')" id= "74">Jabalpur</a>
+<a href= "#" class = "h" onclick="func('Jaipur','75')" id= "75">Jaipur</a>
+<a href= "#" class = "h" onclick="func('Jaisalmer','76')" id= "76">Jaisalmer</a>
+<a href= "#" class = "h" onclick="func('Jammu','77')" id= "77">Jammu</a>
+<a href= "#" class = "h" onclick="func('Jashpur','78')" id= "78">Jashpur</a>
+<a href= "#" class = "h" onclick="func('Jhansi','79')" id= "79">Jhansi</a>
+<a href= "#" class = "h" onclick="func('Jodhpur','80')" id= "80">Jodhpur</a>
+<a href= "#" class = "h" onclick="func('Junagadh','81')" id= "81">Junagadh</a>
+<a href= "#" class = "h" onclick="func('Kanchipuram','82')" id= "82">Kanchipuram</a>
+<a href= "#" class = "h" onclick="func('Kangra','83')" id= "83">Kangra</a>
+<a href= "#" class = "h" onclick="func('Kanker','84')" id= "84">Kanker</a>
+<a href= "#" class = "h" onclick="func('Kannauj','85')" id= "85">Kannauj</a>
+<a href= "#" class = "h" onclick="func('Kanpur','86')" id= "86">Kanpur</a>
+<a href= "#" class = "h" onclick="func('Kanyakumari','87')" id= "87">Kanyakumari</a>
+<a href= "#" class = "h" onclick="func('Kapurthala','88')" id= "88">Kapurthala</a>
+<a href= "#" class = "h" onclick="func('Kargil','89')" id= "89">Kargil</a>
+<a href= "#" class = "h" onclick="func('Katni','90')" id= "90">Katni</a>
+<a href= "#" class = "h" onclick="func('Kaushambi','91')" id= "91">Kaushambi</a>
+<a href= "#" class = "h" onclick="func('Kheda','92')" id= "92">Kheda</a>
+<a href= "#" class = "h" onclick="func('Khordha','93')" id= "93">Khordha</a>
+<a href= "#" class = "h" onclick="func('Kohima','94')" id= "94">Kohima</a>
+<a href= "#" class = "h" onclick="func('Kokrajhar','95')" id= "95">Kokrajhar</a>
+<a href= "#" class = "h" onclick="func('Kolhapur','96')" id= "96">Kolhapur</a>
+<a href= "#" class = "h" onclick="func('Kolkata','97')" id= "97">Kolkata</a>
+<a href= "#" class = "h" onclick="func('Korba','98')" id= "98">Korba</a>
+<a href= "#" class = "h" onclick="func('Kullu','99')" id= "99">Kullu</a>
+<a href= "#" class = "h" onclick="func('Kurukshetra','100')" id= "100">Kurukshetra</a>
+<a href= "#" class = "h" onclick="func('Kutch','101')" id= "101">Kutch</a>
+<a href= "#" class = "h" onclick="func('Leh','102')" id= "102">Leh</a>
+<a href= "#" class = "h" onclick="func('Lucknow','103')" id= "103">Lucknow</a>
+<a href= "#" class = "h" onclick="func('Ludhiana','104')" id= "104">Ludhiana</a>
+<a href= "#" class = "h" onclick="func('Mandi','105')" id= "105">Mandi</a>
+<a href= "#" class = "h" onclick="func('Mathura','106')" id= "106">Mathura</a>
+<a href= "#" class = "h" onclick="func('Mau','107')" id= "107">Mau</a>
+<a href= "#" class = "h" onclick="func('Meerut','108')" id= "108">Meerut</a>
+<a href= "#" class = "h" onclick="func('Nagaur','109')" id= "109">Nagaur</a>
+<a href= "#" class = "h" onclick="func('Nagpur','110')" id= "110">Nagpur</a>
+<a href= "#" class = "h" onclick="func('Nainital','111')" id= "111">Nainital</a>
+<a href= "#" class = "h" onclick="func('Nalanda','112')" id= "112">Nalanda</a>
+<a href= "#" class = "h" onclick="func('Nanded','113')" id= "113">Nanded</a>
+<a href= "#" class = "h" onclick="func('Narmada','114')" id= "114">Narmada</a>
+<a href= "#" class = "h" onclick="func('Narsinghpur','115')" id= "115">Narsinghpur</a>
+<a href= "#" class = "h" onclick="func('Nashik','116')" id= "116">Nashik</a>
+<a href= "#" class = "h" onclick="func('Nayagarh','117')" id= "117">Nayagarh</a>
+<a href= "#" class = "h" onclick="func('Palakkad','118')" id= "118">Palakkad</a>
+<a href= "#" class = "h" onclick="func('Panipat','119')" id= "119">Panipat</a>
+<a href= "#" class = "h" onclick="func('Porbandar','120')" id= "120">Porbandar</a>
+<a href= "#" class = "h" onclick="func('Pratapgarh','121')" id= "121">Pratapgarh</a>
+<a href= "#" class = "h" onclick="func('Pune','122')" id= "122">Pune</a>
+<a href= "#" class = "h" onclick="func('Puri','123')" id= "123">Puri</a>
+<a href= "#" class = "h" onclick="func('Raebareli','124')" id= "124">Raebareli</a>
+<a href= "#" class = "h" onclick="func('Raigarh','125')" id= "125">Raigarh</a>
+<a href= "#" class = "h" onclick="func('Raipur','126')" id= "126">Raipur</a>
+<a href= "#" class = "h" onclick="func('Raisen','127')" id= "127">Raisen</a>
+<a href= "#" class = "h" onclick="func('Rajauri','128')" id= "128">Rajauri</a>
+<a href= "#" class = "h" onclick="func('Rajgarh','129')" id= "129">Rajgarh</a>
+<a href= "#" class = "h" onclick="func('Rajkot','130')" id= "130">Rajkot</a>
+<a href= "#" class = "h" onclick="func('Rajnandgaon','131')" id= "131">Rajnandgaon</a>
+<a href= "#" class = "h" onclick="func('Rajsamand','132')" id= "132">Rajsamand</a>
+<a href= "#" class = "h" onclick="func('Ramanagara','133')" id= "133">Ramanagara</a>
+<a href= "#" class = "h" onclick="func('Ramanathapuram','134')" id= "134">Ramanathapuram</a>
+<a href= "#" class = "h" onclick="func('Ramban','135')" id= "135">Ramban</a>
+<a href= "#" class = "h" onclick="func('Ramgarh','136')" id= "136">Ramgarh</a>
+<a href= "#" class = "h" onclick="func('Rampur','137')" id= "137">Rampur</a>
+<a href= "#" class = "h" onclick="func('Ranchi','138')" id= "138">Ranchi</a>
+<a href= "#" class = "h" onclick="func('Ratlam','139')" id= "139">Ratlam</a>
+<a href= "#" class = "h" onclick="func('Ratnagiri','140')" id= "140">Ratnagiri</a>
+<a href= "#" class = "h" onclick="func('Rayagada','141')" id= "141">Rayagada</a>
+<a href= "#" class = "h" onclick="func('Reasi','142')" id= "142">Reasi</a>
+<a href= "#" class = "h" onclick="func('Rewa','143')" id= "143">Rewa</a>
+<a href= "#" class = "h" onclick="func('Rewari','144')" id= "144">Rewari</a>
+<a href= "#" class = "h" onclick="func('Saiha','145')" id= "145">Saiha</a>
+<a href= "#" class = "h" onclick="func('Salem','146')" id= "146">Salem</a>
+<a href= "#" class = "h" onclick="func('Samastipur','147')" id= "147">Samastipur</a>
+<a href= "#" class = "h" onclick="func('Samba','148')" id= "148">Samba</a>
+<a href= "#" class = "h" onclick="func('Sambalpur','149')" id= "149">Sambalpur</a>
+<a href= "#" class = "h" onclick="func('Sangli','150')" id= "150">Sangli</a>
+<a href= "#" class = "h" onclick="func('Sangrur','151')" id= "151">Sangrur</a>
+<a href= "#" class = "h" onclick="func('Shivpuri','152')" id= "152">Shivpuri</a>
+<a href= "#" class = "h" onclick="func('Sikar','153')" id= "153">Sikar</a>
+<a href= "#" class = "h" onclick="func('Solan','154')" id= "154">Solan</a>
+<a href= "#" class = "h" onclick="func('Solapur','155')" id= "155">Solapur</a>
+<a href= "#" class = "h" onclick="func('Sonipat','156')" id= "156">Sonipat</a>
+<a href= "#" class = "h" onclick="func('Srinagar','157')" id= "157">Srinagar</a>
+<a href= "#" class = "h" onclick="func('Sultanpur','158')" id= "158">Sultanpur</a>
+<a href= "#" class = "h" onclick="func('Sundergarh','159')" id= "159">Sundergarh</a>
+<a href= "#" class = "h" onclick="func('Surat','160')" id= "160">Surat</a>
+<a href= "#" class = "h" onclick="func('Surendranagar','161')" id= "161">Surendranagar</a>
+<a href= "#" class = "h" onclick="func('Surguja','162')" id= "162">Surguja</a>
+<a href= "#" class = "h" onclick="func('Tiruchirappalli','163')" id= "163">Tiruchirappalli</a>
+<a href= "#" class = "h" onclick="func('Vadodara','164')" id= "164">Vadodara</a>
+<a href= "#" class = "h" onclick="func('Vaishali','165')" id= "165">Vaishali</a>
+<a href= "#" class = "h" onclick="func('Varanasi','166')" id= "166">Varanasi</a>
+<a href= "#" class = "h" onclick="func('Vellore','167')" id= "167">Vellore</a>
+<a href= "#" class = "h" onclick="func('Vidisha','168')" id= "168">Vidisha</a>
+<a href= "#" class = "h" onclick="func('Warangal','169')" id= "169">Warangal</a>
+<a href= "#" class = "h" onclick="func('Wardha','170')" id= "170">Wardha</a>
+<a href= "#" class = "h" onclick="func('Washim','171')" id= "171">Washim</a>
+<a href= "#" class = "h" onclick="func('Wayanad','172')" id= "172">Wayanad</a>
+<a href= "#" class = "h" onclick="func('Yanam','173')" id= "173">Yanam</a>
+<a href= "#" class = "h" onclick="func('Yavatmal','174')" id= "174">Yavatmal</a>
+<a href= "#" class = "h" onclick="func('Zunheboto','175')" id= "175">Zunheboto</a>
+            </div>
+
+            <div id="main"><button class="btn btn-success" onclick="closeNav()" id="tg">
+                X</button>
+                <h1 class="text-center"><strong>OPEN INDIAN WEATHER</strong></h1>
+                <p class="text-center k">As a part of Freecodecamp project<br>By Yogendra Kumar Dhiwar</p>
+                
+                <div class="boxed text-center">
+                    <h2>Raipur</h2>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                        <img  src = "http://openweathermap.org/img/w/01d.png" class="img-responsive centered" id="im" >
+                        </div>
+                        <div class="col-xs-12"><p id="temp">27 °C</p>
+                        </div>
+                        <div class="col-xs-12 text-center"><p id="des">clear sky</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-primary bt1 btn-lg" id="bt" onclick="openNav()">&#9776; Choose City</button>
+                         <button class="btn btn-success bt1 btn-lg" id="con">&#9878; Change Unit</button>
+                    </div>
+                </div>
+              <!-- <p id="hy"></p> -->
+        </div>
+    </body>
+</html>
