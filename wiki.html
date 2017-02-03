@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Wiki Searcher</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Kumar+One|Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Aclonica|Berkshire+Swash|Sansita|Squada+One" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script>
+           
+            var getWiki = function(data){
+                var str="";
+                for(var i =0;i<data[1].length;i++){
+                    str += "<div class='well'> <a href="+data[3][i]+" target='_blank'><p id='topic'><strong>"+data[1][i]+"</strong></p></a>"+data[2][i]+"</div>";
+                }
+                $("#p1").html(str);
+                $("h1").show();
+                $("#bt").show();
+                
+            }
+            var cat = function(val){
+                
+                $("#pi").text(val);
+            }
+            function func(){
+                location.reload();
+            }
+            $(document).ready(function(){
+                $("h1").hide();
+                $("#bt").hide();
+                
+               $("input[type=text]").focusin(function(){
+                   $("#ji").attr("src","grt.gif");
+                   $("#ji1").attr("src","grt5.gif");
+               });
+                 
+               $("input[type=text]").focusout(function(){
+                   $("#ji").attr("src","grt1.gif");
+                   $("#ji1").attr("src","grt4.gif");
+               });
+                
+                
+                
+               $("#myBu").click(function() {
+                   $(".inst").hide();
+                    var search = $("#formval").val();
+                    var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+search+"&format=json&callback=?";
+                    $.getJSON(url,getWiki); 
+                    cat($("#formval").val());
+                });
+                
+                 
+                    
+           });
+            
+        </script>
+        <style>
+            body{
+                background-color: aliceblue;
+            }
+            #p1,#p3{
+                font-family: 'Squada One', cursive;
+                font-size: 18px;
+
+            }
+            #topic,#top{
+                font-family: 'Aclonica', sans-serif;
+                font-size: 22px;
+                color: darkred;
+            }
+            #t1{
+                font-family: 'Aclonica', sans-serif;
+                font-size: 50px;
+                color: darkred;
+                text-shadow: 4px 4px 3px #888888;
+            }
+            #rt,#disclaim{
+                font-family: 'Aclonica', sans-serif;
+                font-size: 30px;
+                color: darkred;
+                text-shadow: 3px 3px 2px #888888;
+            }
+            .parallax {
+                background-image: url("wiki3.jpg");
+                min-height: 100px;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            input[type=text] {
+                width: 130px;
+                box-sizing: border-box;
+                border: 2px solid maroon;
+                border-radius: 10px;
+                font-size: 16px;
+                background-color: powderblue;
+                background-image: url('searchicon.png');
+                background-position: 10px 10px; 
+                background-repeat: no-repeat;
+                padding: 12px 20px 12px 40px;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+                z-index: 2;
+                margin-top: 20px;
+                position: absolute;
+                box-shadow: 8px 8px 4px #888888;
+            }
+
+            input[type=text]:focus {                
+                width: 100%;
+            }       
+            .well{
+                margin-left: 30px;
+                margin-right: 30px;
+                border-radius: 10px;
+                border-color: maroon;
+                border-width: 2px;
+                box-shadow: 8px 8px 4px #888888;
+                background-color: darkseagreen;
+            }
+            #bt{
+                background-color: darkseagreen;
+                border-radius: 10px;
+                border-color: maroon;
+                border-width: 2px;
+                box-shadow: 8px 8px 4px #888888;
+                color: darkred;
+                font-family: 'Aclonica', sans-serif;
+            }
+           
+        </style>
+    </head>
+    <body >
+        <div class="conatiner-fluid">
+            <p class="text-center" id="rt"><strong id="t1">Dragon Clickerz</strong><br>(Wikipedia Searcher)<p>
+                <p class="text-center" style="font-size:15px; color:black;" id="disclaim">As a part of Freecodecamp project<br>By Yogendra Kumar Dhiwar</p>
+            <div class="well">
+            <div class="row">
+                <div class="col-xs-4 text-center"><a id="myBu3" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" style="cursor:pointer"><img class="img-responsive" src="grt4.gif" id="ji1"/></a>
+                </div>
+                <div class="col-xs-5">
+                    <form autocomplete="off">
+                        <input type="text" name="search" placeholder="Click Me" id="formval"/>                
+                    </form>
+                   
+                </div>
+                <div class="col-xs-3"><a id="myBu" style="cursor:pointer" href="#p1">
+                    <img class="img-responsive" src="grt1.gif" id="ji"/></a>
+                    
+                </div>
+            </div>
+            </div>
+            <div class="inst" style=" font-family: 'Aclonica', sans-serif">
+            <h3 class="text-center">INSTRUCTIONS</h3>
+                <ul><li>Red Dragon is your search button</li><li>Clicking Green dragon will take you to a random wikipedia page</li></ul></div>
+               
+            <h1 class="text-center" id="top" style="text-shadow: 3px 3px 2px #888888">Search Results</h1>            
+                <p id="p1"></p>
+            <div class="row text-center">
+                <div class="col-xs-12"><Button class="btn btn-success" id="bt" onclick="location.href='#top';"><strong>TOP</strong></Button></div>
+                <br><br><br><br>
+            
+            </div>
+            
+        </div>          
+    </body>
+</html>
