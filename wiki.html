@@ -56,7 +56,8 @@
                     $.getJSON(url,getWiki); 
                     cat($("#formval").val());
                 });
-                
+               
+            });
                  
                     
            });
@@ -149,7 +150,8 @@
                 </div>
                 <div class="col-xs-5">
                     <form autocomplete="off">
-                        <input type="text" name="search" placeholder="Click Me" id="formval"/>                
+                        <input type="text" name="search" placeholder="Click Me" id="formval" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('myBu').click()"/>                
                     </form>
                    
                 </div>
@@ -161,7 +163,7 @@
             </div>
             <div class="inst" style=" font-family: 'Aclonica', sans-serif">
             <h3 class="text-center">INSTRUCTIONS</h3>
-                <ul><li>Red Dragon is your search button</li><li>Clicking Green dragon will take you to a random wikipedia page</li></ul></div>
+                <ul><li>Red Dragon/Enter is your search button</li><li>Clicking Green dragon will take you to a random wikipedia page</li></ul></div>
                
             <h1 class="text-center" id="top" style="text-shadow: 3px 3px 2px #888888">Search Results</h1>            
                 <p id="p1"></p>
