@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TwitchTv Streamers</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Kumar+One|Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Aclonica|Berkshire+Swash|Sansita|Squada+One" rel="stylesheet">
+        <script>
+            
+             function myFunction() {
+                    var input, filter, table, tr, td, i;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    for (i = 1; i <= 11; i++) {
+                        td = document.getElementById(i.toString());
+                        if (td) {
+                            var str = "w"+i;
+                            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                
+                                document.getElementById(str).style.display = "";
+                            } else {
+                                document.getElementById(str).style.display = "none";
+                            }
+                        }       
+                    }
+            }
+            function myFunction2() {
+                    var input, filter, table, tr, td, i,k="";
+                    input = document.getElementById("myInput2");
+                    filter = input.value.toUpperCase();
+                   
+                    for (i = 1; i <= 11; i++) {
+                        td = document.getElementById("o"+i.toString());
+                        if (td) {
+                            var str = "wo"+i;
+                            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                
+                                document.getElementById(str).style.display = "";
+                            } else {
+                                document.getElementById(str).style.display = "none";
+                            }
+                        }       
+                    }
+            }
+            function myFunction3() {
+                    var input, filter, table, tr, td, i,k="";
+                    input = document.getElementById("myInput3");
+                
+                    filter = input.value.toUpperCase();
+                   
+                    for (i = 1; i <= 11; i++) {
+                        td = document.getElementById("ol"+i.toString());
+                        if (td) {
+                            var str = "wol"+i;
+                            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                
+                                document.getElementById(str).style.display = "";
+                            } else {
+                                document.getElementById(str).style.display = "none";
+                            }
+                        }       
+                    }
+            }
+            var all =[ "beyondthesummit","c9sneaky","easportsfifa","esl_sc2","freecodecamp","giantwaffle","itsrymo","ozgulturk13","stpeach","thesleepydwarf_","quicklydotatv"];
+            var update = function(data){
+                $("#iy").text(data.stream.channel.status);
+            }
+            
+            $(document).ready(function(){
+             var htm = "rt";
+                for(var i=0;i<all.length;i++){                
+                   
+                    (function(i) {$.getJSON("https://wind-bow.gomix.me/twitch-api/streams/"+all[i],function(data){
+                        if(data.stream === null){
+                            var j = i+1;
+                            var id1 ="#st"+j.toString();
+                            var id2 = "#ic"+(i+1).toString();
+                            $(id1).text("-");
+                            $(id2).attr("class","glyphicon glyphicon-remove");
+                            $(id2).attr("style","color:red;");
+                            var st = "#w"+j.toString();
+                            var clone = $(st).clone();                            
+                            clone.attr("id","wol"+j.toString());
+                            $("#menu2").append(clone);
+                           $("#menu2").find("#"+j.toString()).attr("id","ol"+j.toString());
+                        }else{
+                            var j = i+1;
+                            var id1 ="#st"+j.toString();
+                            var id2 = "#ic"+j.toString();
+                            htm += id1;
+                            var str = data.stream.channel.status;
+                            $(id1).text(str);
+                            $(id2).attr("class","glyphicon glyphicon-signal");
+                            $(id2).attr("style","color:green;");
+                           var st = "#w"+j.toString();
+                            var clone = $(st).clone();                            
+                            clone.attr("id","wo"+j.toString());
+                            $("#menu1").append(clone);
+                           $("#menu1").find("#"+j.toString()).attr("id","o"+j.toString());
+                         
+                            
+                            
+                            
+                        }
+                         
+                   }); })(i);
+                    
+            }
+              
+               
+           
+                });
+        </script>
+        <style>
+        
+            body{
+                background-color: aliceblue;
+            }
+            .nav>li>a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-left: 27px;
+                width: 80%;
+                background-color: mintcream;
+                border-radius: 20px;
+                box-shadow: 8px 8px 4px #888888;
+                border: 2px solid cadetblue;
+            }
+            div1{
+                text-shadow: 1px 1px 2px #000000;
+            }
+            td,p{
+                font-family: 'Lobster', cursive;
+                font-size: 15px;
+            }
+            th{
+                 font-family: 'Kumar One', cursive;
+                color: midnightblue;
+                font-size: 20px;
+            }
+            
+            .boxed {
+                border: 4px solid cadetblue;
+                border-radius: 20px;
+                margin-top: 2%;
+                margin-left: 20%;
+                margin-right: 20%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                box-shadow: 10px 10px 5px #888888;
+                background-color: aqua;
+                margin-bottom: 40px;
+               
+            }
+            
+            .well{
+                margin-left: 5%;
+                margin-right: 5%;
+                border-radius: 20px;
+                box-shadow: 8px 8px 4px #888888;
+                border: 2px solid cadetblue;
+                background-color: mistyrose;
+            }
+            
+            .imgr{
+               display: inline-block; 
+                
+            }
+            
+            .channel{
+                font-family: 'Aclonica', sans-serif;
+                font-size: 20px;
+                color: cadetblue;
+            }
+            
+            .stat{
+                font-family: 'Squada One', cursive;
+                font-size: 18px;
+                color: blueviolet;
+            }
+            #myInput,#myInput2,#myInput3 {
+                background-image: url('searchicon.png');
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                font-size: 16px;
+                padding: 12px 20px 12px 40px;
+                border: 2px solid cadetblue;
+                margin-bottom: 12px;
+                border-radius: 20px;
+                width: 90%;
+                box-shadow: 8px 8px 4px #888888;
+                background-color: mintcream;
+            }
+            .parallax {
+                background-image: url("twitch2.jpg");
+                min-height: 400px;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-top: 10px;
+                
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container-fluid"><div class="parallax"></div>
+            <div class="boxed text-center">
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a data-toggle="pill" href="#home"><span class="glyphicon glyphicon-user"><strong> ALL</strong></span></a></li>
+                <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-signal" style="color:green;"><strong> ONLINES</strong></span></a></li>
+                <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-remove" style="color:red;"><strong> OFFLINES</strong></span></a></li>
+            </ul>
+               <br>
+            <div class="tab-content">
+                
+                <!------------------------------------------------------------------------------------------------>      
+                <div id="home" class="tab-pane fade in active">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for all streamers...." title="Type in a name">
+                    <br>
+                     <div class="well well-lg" id="w1">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/beyondthesummit-profile_image-d3d31e2a3b0f1e0a-300x300.jpeg" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/beyondthesummit" target="_blank"><p class="channel text-center"><span id="1">BeyondTheSummit</span></a><br><span id="st1" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic1"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w2">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/c9sneaky-profile_image-03d2c6cbb19c9e5d-300x300.png" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/c9sneaky" target="_blank"><p class="channel text-center"><span id="2">C9Sneaky</span></a><br><span id="st2" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic2"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w3">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/easportsfifa-profile_image-f01b56f350384066-300x300.jpeg" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/easportsfifa" target="_blank"><p class="channel text-center"><span id="3">EASPORTSFIFA</span></a><br><span id="st3" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic3"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w4">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/esl_sc2-profile_image-d6db9488cec97125-300x300.jpeg" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/esl_sc2" target="_blank"><p class="channel text-center"><span id="4">ESL_SC2</span></a><br><span id="st4" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic4"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w5">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-d9514f2df0962329-300x300.png" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/freecodecamp" target="_blank"><p class="channel text-center"><span id="5">FreeCodeCamp</span></a><br><span id="st5" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic5"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w6">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/giantwaffle-profile_image-8a748d875893002c-300x300.png" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/giantwaffle" target="_blank"><p class="channel text-center"><span id="6">Giantwaffle</span></a><br><span id="st6" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic6"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w7">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/itsrymo-profile_image-664a8dfa11c56173-300x300.png" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/itsrymo" target="_blank"><p class="channel text-center"><span id="7">itsrymo</span></a><br><span id="st7" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic7"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w8">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/ozgulturk13-profile_image-512cfa764c3c2a13-300x300.jpeg" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/ozgulturk13" target="_blank"><p class="channel text-center"><span id="8">OzgulTurk13</span></a><br><span id="st8" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic8"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w9">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/stpeach-profile_image-dd0167b2bbd8da60-300x300.jpeg" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/stpeach" target="_blank"><p class="channel text-center"><span id="9">STPeach</span></a><br><span id="st9" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic9"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w10">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/thesleepydwarf_-profile_image-8636795777daad44-300x300.jpeg" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/thesleepydwarf_" target="_blank"><p class="channel text-center"><span id="10">TheSleepyDwarf_</span></a><br><span id="st10" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic10"></span></div>
+                       </div>
+                    </div>
+                    
+                    <div class="well well-lg" id="w11">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quicklydotatv-profile_image-b71af5cf0b3c45b7-300x300.png" class="img-responsive imgr" width="50" height="50"/>
+                            </div><div class="col-xs-6"><a href="https://www.twitch.tv/quicklydotatv" target="_blank"><p class="channel text-center"><span id="11">QuickLydotaTV</span></a><br><span id="st11" class="stat">status</span></p></div>                           
+                            <div class="col-xs-4"><br><span class="glyphicon glyphicon-remove" style="color:red;" id="ic11"></span></div>
+                       </div>
+                    </div>
+
+                </div>
+         <!------------------------------------------------------------------------------------------------>   
+                <div id="menu1" class="tab-pane fade">
+                    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for online streamers...." title="Type in a name">
+                 
+                </div>
+    <!------------------------------------------------------------------------------------------------>
+                <div id="menu2" class="tab-pane fade">
+                    <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for offline streamers...." title="Type in a name">
+                </div>
+        <!------------------------------------------------------------------------------------------------>
+                
+            </div>
+            
+</div><div class="parallax"></div><footer><p class="text-center">Created with &hearts;  by Yogendra Kumar Dhiwar<br>A part of FreeCodeCamp Project</p></footer>
+        </div>
+    
+    </body>
+    
+</html>
