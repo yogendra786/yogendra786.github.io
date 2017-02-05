@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Javascript Calculator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Kumar+One|Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Aclonica|Berkshire+Swash|Sansita|Squada+One" rel="stylesheet">
+        <script>
+            
+            var ans="";
+            var hist="";
+            var op1="";
+            var rel=""
+            var op2="";
+            function Cal(val){
+                if(val === '*' || val === '/' || val === '+' || val === '-'){
+                    if((op1 !== "") && (rel !=="") && (op2 !== "")){
+                        if(rel === "*"){
+                            ans = parseInt(op1) * parseInt(op2);
+                        }else if(rel === "/"){
+                            ans = parseInt(op1) / parseInt(op2);
+                        }else if(rel === "+"){
+                            ans = parseInt(op1) + parseInt(op2);
+                        }else if(rel === "-"){
+                            ans = parseInt(op1) - parseInt(op2);
+                        }
+                        op1 = ans.toString();
+                        op2 = "";
+                        rel = val;
+                        hist += val;
+                        $("#yet").text(hist);
+                        $("#current").text(ans);
+                    }else{
+                        if(op1 != ""){
+                            rel = val;
+                            hist += rel;
+                            $("#yet").text(hist);
+                        }
+                    }
+                }else if( val === "AC" || val === "CE"){
+                    if(val === "AC"){
+                        op1 = "";
+                        op2 = "";
+                        ans = "";
+                        hist = "";
+                        rel = "";
+                        $("#current").text(ans);
+                        $("#yet").text(hist);
+                    }
+                    if(val === "CE"){
+                        if( op2 != ""){
+                            op2 = op2.substring(0,op2.length-1);
+                            hist = hist.substring(0,hist.length-1);
+                            $("#yet").text(hist);                                
+                        }else if( rel != ""){
+                            rel = "";
+                            hist = hist.substring(0,hist.length-1);
+                            $("#yet").text(hist);
+                        }else if( op1 !=""){
+                            op1 = op1.substring(0,op1.length-1);
+                            hist = hist.substring(0,hist.length-1);
+                            $("#yet").text(hist);
+                            $("#current").text(op1);
+                            if(op1 === "")
+                                Cal("AC");
+                        }
+                        else{
+                            Cal("AC");
+                        }
+                    }
+                }
+                else if(val === "="){
+                    if(rel === "*"){
+                            ans = parseInt(op1) * parseInt(op2);
+                    }else if(rel === "/"){
+                            ans = parseInt(op1) / parseInt(op2);
+                    }else if(rel === "+"){
+                            ans = parseInt(op1) + parseInt(op2);
+                    }else if(rel === "-"){
+                            ans = parseInt(op1) - parseInt(op2);
+                    }
+                    hist += "="+ans.toString();
+                     $("#yet").text(hist);
+                    $("#current").text(ans);
+                    op1 = ans.toString();
+                    op2 = "";
+                    rel = "";
+                    hist = op1;
+                }
+                else{
+                    if(rel !=""){
+                        op2 += val;
+                        hist += val;
+                         $("#yet").text(hist);
+                    }else{
+                        if(ans === ""){
+                            op1 += val;
+                            hist += val;
+                            $("#current").text(op1);
+                            $("#yet").text(hist);
+                        }else{
+                            op1 += val;
+                            hist += val;
+                            $("#current").text(ans);
+                            $("#yet").text(hist);
+                        }
+                    }
+                }
+                if(op1.length > 16 || op2.length >16 || ans.length >16 || hist.length > 34){
+                        op1 = "";
+                        op2 = "";
+                        ans = "";
+                        hist = "";
+                        rel = "";
+                        $("#current").text("Sorry, >16 Digits");
+                        $("#yet").text("press AC to continue");
+                }
+                 
+            }
+            
+            $(document).ready(function(){
+                
+                
+            });
+            
+        </script>
+        <style>
+            body{
+                background-color: #c9d3dc;
+            }
+            #ha{
+                font-family: 'Aclonica', sans-serif;
+                font-size: 20px;
+            }
+            .calculator{
+                margin-top: 100px;
+                margin-left:30%;
+                height: 470px;
+                width: 355px;
+                background-color: #5d85ad;
+                padding-top: 18px;
+                border-radius:10px;
+                box-shadow: 8px 8px #395d80;
+            }
+            .display{
+                margin-left:5%;
+                height: 100px;
+                width: 90%;
+                background-color: #b3c581;
+                margin-bottom: 10px;
+                border-radius:10px;
+                padding-top:15px;
+                padding-right:10px;
+                padding-left:10px;
+                padding-bottom:25px;                
+                box-shadow:5px 5px 2px 2px #4b5728 inset;
+                
+            }
+            .but{
+                padding-top: 5px;
+                margin-left:5%;
+                height: 212px;
+                width: 90%;
+                background-color: green;
+            }
+            .well{
+                margin-left:5%;
+                padding-left:5px;
+                margin-right:5%;
+                padding-right:5px;
+                padding-bottom: 2%;
+                padding-top: 4%;
+                border-radius:10px;
+                border-width:0px;
+                background-color: #c9d3dc;
+                box-shadow:5px 5px 2px 2px #51677b inset;
+            }
+            
+            .btn{
+                margin-left:7px;
+                border-radius:7px;
+                margin-bottom: 8px;
+                width: 65px;
+                font-family: 'Aclonica', sans-serif;
+                color:aliceblue;
+                background-color: #5d85ad;
+                box-shadow: 4px 4px #395d80;
+            }
+            #but1{
+                width: 140px;
+            }
+            #bu{
+                height: 76px;
+                position: absolute;
+            }
+            p{
+                font-family: 'Lobster', cursive;
+                font-size: 15px;
+            }
+            #current{
+                font-size:35px;
+            }
+            #yet{
+                color:gray;
+                font-size:18px;
+                
+            }
+            #ha{
+                color:#2b2408;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="calculator"><p class="text-center" id="ha">CALCULATOR</p>
+                <div class="display text-right"><div class="row"><div class="col-xs-12"><p id="current"></p></div><div class="col-xs-12"><p id="yet"></p></div></div></div>
+                    <div class="well">
+                        <Button class="btn" onclick="Cal('AC')"><span style="color:maroon;">AC</span></Button>
+                        <Button class="btn" onclick="Cal('CE')"><span style="color:maroon;">CE</span></Button>
+                        <Button class="btn" onclick="Cal('*')">X</Button>
+                        <Button class="btn" onclick="Cal('/')">/</Button>
+                        <Button class="btn" onclick="Cal('7')">7</Button>
+                        <Button class="btn" onclick="Cal('8')">8</Button>
+                        <Button class="btn" onclick="Cal('9')">9</Button>
+                        <Button class="btn" onclick="Cal('-')">-</Button>
+                        <Button class="btn" onclick="Cal('4')">4</Button>
+                        <Button class="btn" onclick="Cal('5')">5</Button>
+                        <Button class="btn" onclick="Cal('6')">6</Button>
+                        <Button class="btn" onclick="Cal('+')">+</Button>
+                        <Button class="btn" onclick="Cal('1')">1</Button>
+                        <Button class="btn" onclick="Cal('2')">2</Button>
+                        <Button class="btn" onclick="Cal('3')">3</Button>
+                        <Button class="btn" onclick="Cal('=')" id="bu">=</Button>
+                        <Button class="btn" onclick="Cal('0')" id="but1">0</Button>
+                        <Button class="btn" onclick="Cal('.')">.</Button>
+                        <Button class="btn invisible">A</Button>             
+                    </div>
+                <footer><p class="text-center">Created with &hearts;  by Yogendra Kumar Dhiwar<br>A part of FreeCodeCamp Project</p></footer>
+            </div>
+        </div>
+    </body>
+</html>
